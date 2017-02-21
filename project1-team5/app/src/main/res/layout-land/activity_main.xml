@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/game">
+
+    <Button
+        android:text="@string/startgame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="102dp"
+        android:id="@+id/startgame"
+        android:onClick="onStart" />
+
+    <TextView
+        android:text="@string/user2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/user2_image"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:layout_below="@+id/green_connect"
+        android:layout_toLeftOf="@+id/startgame"
+        android:layout_toStartOf="@+id/startgame" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editText4"
+        android:text="@string/input1"
+        android:layout_alignTop="@+id/user2_image"
+        android:layout_toRightOf="@+id/user2_image"
+        android:layout_toEndOf="@+id/user2_image" />
+
+    <TextView
+        android:text="@string/user1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/user1_image"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:layout_marginBottom="24dp"
+        android:layout_above="@+id/user2_image"
+        android:layout_alignLeft="@+id/user2_image"
+        android:layout_alignStart="@+id/user2_image" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="@string/input2"
+        android:ems="10"
+        android:id="@+id/user_inputone"
+        android:layout_alignBottom="@+id/user1_image"
+        android:layout_toRightOf="@+id/user1_image"
+        android:layout_toEndOf="@+id/user1_image" />
+
+    <TextView
+        android:text="@string/user1picture1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/picture1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:layout_above="@+id/green_connect"
+        android:layout_alignLeft="@+id/user2_icon"
+        android:layout_alignStart="@+id/user2_icon" />
+
+    <TextView
+        android:text="@string/user2picture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/user2_icon"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:layout_above="@+id/white_connect"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="55dp"
+        android:layout_marginEnd="55dp" />
+
+    <TextView
+        android:text="@string/welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:id="@+id/input_messaeg"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/user_inputone"
+        android:layout_alignEnd="@+id/user_inputone" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/spartan_green"
+        android:id="@+id/green_connect"
+        android:contentDescription=""
+        tools:ignore="ContentDescription"
+        android:layout_below="@+id/input_messaeg"
+        android:layout_toLeftOf="@+id/startgame"
+        android:layout_toStartOf="@+id/startgame"
+        android:layout_marginRight="57dp"
+        android:layout_marginEnd="57dp"
+        android:layout_marginTop="23dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/spartan_white"
+        android:id="@+id/white_connect"
+        tools:ignore="ContentDescription"
+        android:layout_below="@+id/picture1"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="11dp" />
+
+</RelativeLayout>
