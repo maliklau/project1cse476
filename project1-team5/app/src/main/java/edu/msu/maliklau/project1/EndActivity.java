@@ -24,17 +24,5 @@ public class EndActivity extends ActionBarActivity{
         startActivity(intent);
     }
 
-    public void onDone(View view) {
-
-        Intent intent = new Intent(this, EndActivity.class);
-        startActivity(intent);
-    }
-
-    public void onSurrender(View view) {
-
-        Intent intent = new Intent(this, EndActivity.class);
-        startActivity(intent);
-
-    }
 
 }

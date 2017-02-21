@@ -38,7 +38,7 @@
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/undo_button"
         android:layout_toEndOf="@+id/undo_button"
-        android:onClick="onSurrender (EndActivity)" />
+        android:onClick="onSurrender" />
 
     <Button
         android:text="@string/done"
