@@ -1,13 +1,11 @@
 <resources>
-    <string name="app_name">Team 5 Game</string>
-    <string name="startgame">StartGame</string>
-    <string name="welcome">Welcome to Team 5 Game, Please input your name:</string>
-    <string name="user1">USER1:</string>
-    <string name="password1">Please input your name here</string>
-    <string name="input">Please input your name</string>
-    <string name="user2">USER2:</string>
-    <string name="input1">please input your name</string>
-    <string name="input2">please input your name</string>
+    <string name="app_name">Connect Four</string>
+    <string name="gameStart">START</string>
+    <string name="welcomeText">Welcome to Connect 4 \nby Team 5</string>
+    <string name="userOneImage">Player 1:</string>
+    <string name="userTwoImage">Player 2:</string>
+    <string name="input1">Enter Name</string>
+    <string name="input2">Enter Name</string>
     <string name="user1picture1">USER1 icon:</string>
     <string name="user2picture">USER2 Icon:</string>
     <string name="done">Done</string>
@@ -15,6 +13,8 @@
     <string name="surrender">Surrender</string>
     <string name="game_over">Game over!</string>
     <string name="mainMenuButton">Main Menu</string>
+    <string name="jane_doe">Jane Doe</string>
+    <string name="john_smith">John Smith</string>
 
     <string-array name="image_ids">
         <item>@drawable/slot</item>

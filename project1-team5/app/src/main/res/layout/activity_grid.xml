@@ -4,52 +4,76 @@
     android:layout_height="match_parent"
     android:background="#f0f0f0">
 
-    <Button
-        android:text="@string/undo"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:id="@+id/button_group"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/undo_button"
-        style="@android:style/Widget.Button.Toggle"
-        android:elevation="0dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/undoButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/undo" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/surrenderButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onSurrender"
+                android:text="@string/surrender" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/doneButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onDone (EndActivity)"
+                android:text="@string/done" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 
     <GridView
         android:id="@+id/gridView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawSelectorOnTop="true"
-        android:numColumns="1"
-        android:rowCount="1"
-        android:gravity="center"
-        android:fadingEdgeLength="0px"
-        android:listSelector="@null"
-        android:layout_below="@+id/done_button"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/button_group"
+        android:drawSelectorOnTop="true"
+        android:fadingEdgeLength="0px"
+        android:gravity="center"
+        android:listSelector="@null"
+        android:numColumns="1"
+        android:rowCount="1" />
 
-    <Button
-        android:text="@string/surrender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/surrender_button"
-        style="@android:style/Widget.Button.Toggle"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/undo_button"
-        android:layout_toEndOf="@+id/undo_button"
-        android:onClick="onSurrender" />
 
-    <Button
-        android:text="@string/done"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/done_button"
-        style="@android:style/Widget.Button.Toggle"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/undo_button"
-        android:layout_toEndOf="@+id/undo_button"
-        android:layout_marginLeft="88dp"
-        android:layout_marginStart="88dp"
-        android:onClick="onDone (EndActivity)" />
 </RelativeLayout>
