@@ -4,10 +4,6 @@
     <string name="welcomeText">Welcome to Connect 4 \nby Team 5</string>
     <string name="userOneImage">Player 1:</string>
     <string name="userTwoImage">Player 2:</string>
-    <string name="input1">Enter Name</string>
-    <string name="input2">Enter Name</string>
-    <string name="user1picture1">USER1 icon:</string>
-    <string name="user2picture">USER2 Icon:</string>
     <string name="done">Done</string>
     <string name="undo">Undo</string>
     <string name="surrender">Surrender</string>
@@ -15,9 +11,5 @@
     <string name="mainMenuButton">Main Menu</string>
     <string name="jane_doe">Jane Doe</string>
     <string name="john_smith">John Smith</string>
-
-    <string-array name="image_ids">
-        <item>@drawable/slot</item>
-    </string-array>
 
 </resources>
