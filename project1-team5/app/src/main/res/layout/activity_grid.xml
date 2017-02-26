@@ -71,8 +71,9 @@
         android:fadingEdgeLength="0px"
         android:gravity="center"
         android:listSelector="@null"
-        android:numColumns="1"
-        android:rowCount="1" />
+        android:numColumns="7"
+        android:rowCount="0" >
+    </GridView>
 
 
 </RelativeLayout>

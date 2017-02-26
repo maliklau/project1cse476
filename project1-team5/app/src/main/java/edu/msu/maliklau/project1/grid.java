@@ -49,8 +49,12 @@ public class grid extends ActionBarActivity {
 
 
         final ArrayList<ImageItem> imageItems = new ArrayList<>();
-        for (int i = 0; i < 1; i++) {
-            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), edu.msu.maliklau.project1.R.drawable.empty);
+        for (int i = 0; i < 42; i++) {
+
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), edu.msu.maliklau.project1.R.drawable.slot);
+
+
+
 
 
             imageItems.add(new ImageItem(bitmap, "Image#" + i) );

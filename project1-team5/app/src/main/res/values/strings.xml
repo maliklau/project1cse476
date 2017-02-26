@@ -11,5 +11,6 @@
     <string name="mainMenuButton">Main Menu</string>
     <string name="jane_doe">Jane Doe</string>
     <string name="john_smith">John Smith</string>
+    <string name="winner">Winner:</string>
 
 </resources>

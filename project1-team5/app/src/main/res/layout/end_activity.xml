@@ -22,6 +22,16 @@
         android:textStyle="bold"
         android:text="@string/game_over" />
 
+
+        <TextView
+            android:textAlignment="center"
+            android:textSize="32sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/winner"
+            android:textStyle="bold"
+            android:text="@string/winner"  />
+
         <Button
                 android:textAlignment="center"
                 android:gravity="center_horizontal"
