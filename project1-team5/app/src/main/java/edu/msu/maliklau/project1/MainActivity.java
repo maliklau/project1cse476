@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
+import android.widget.EditText;
 
 public class MainActivity extends ActionBarActivity {
 //    private GridView gridView;
@@ -22,8 +23,10 @@ public class MainActivity extends ActionBarActivity {
      * @param view
      */
     public void onStart(View view) {
+        EditText ID1=(EditText) findViewById(R.id.userOneText);
 
         Intent intent = new Intent(this, grid.class);
+        intent.putExtra("location", ID1.getText().toString());
         startActivity(intent);
     }
 
