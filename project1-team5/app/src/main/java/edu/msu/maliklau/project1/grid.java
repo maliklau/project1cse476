@@ -21,7 +21,9 @@ public class grid extends ActionBarActivity {
         gridView = (GridView) findViewById(edu.msu.maliklau.project1.R.id.gridView);
         gridAdapter = new GridViewAdapter(this, edu.msu.maliklau.project1.R.layout.grid_item_layout, getData());
         gridView.setAdapter(gridAdapter);
-
+        Intent in = getIntent();
+        String tv1= in.getExtras().getString("location");
+        textView1.setText(tv1);
     }
 
     public void onStart(View view) {
