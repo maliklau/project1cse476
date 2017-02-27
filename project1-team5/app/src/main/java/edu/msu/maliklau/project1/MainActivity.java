@@ -24,9 +24,10 @@ public class MainActivity extends ActionBarActivity {
      */
     public void onStart(View view) {
         EditText ID1=(EditText) findViewById(R.id.userOneText);
-
+        EditText ID2=(EditText) findViewById(R.id.userTwoText);
         Intent intent = new Intent(this, grid.class);
         intent.putExtra("location", ID1.getText().toString());
+        intent.putExtra("location1", ID2.getText().toString());
         startActivity(intent);
     }
 

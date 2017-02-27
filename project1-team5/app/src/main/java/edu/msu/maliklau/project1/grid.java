@@ -7,7 +7,9 @@ import java.util.ArrayList;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.TextView;
 
 public class grid extends ActionBarActivity {
     private GridView gridView;
@@ -23,7 +25,10 @@ public class grid extends ActionBarActivity {
         gridView.setAdapter(gridAdapter);
         Intent in = getIntent();
         String tv1= in.getExtras().getString("location");
-        textView1.setText(tv1);
+        ((TextView)findViewById(R.id.userOneData)).setText(tv1);
+        Intent in1 = getIntent();
+        String tv2= in1.getExtras().getString("location1");
+        ((TextView)findViewById(R.id.userTwoData)).setText(tv2);
     }
 
     public void onStart(View view) {

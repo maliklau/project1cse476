@@ -12,5 +12,7 @@
     <string name="jane_doe">Jane Doe</string>
     <string name="john_smith">John Smith</string>
     <string name="winner">Winner:</string>
+    <string name="user_two">user_2</string>
+    <string name="user_one">user_1</string>
 
 </resources>
