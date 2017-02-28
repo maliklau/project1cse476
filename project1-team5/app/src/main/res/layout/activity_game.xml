@@ -99,21 +99,20 @@
 
     </LinearLayout>
 
-    <GridView
-        android:id="@+id/gridView"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/userNamesGroup"
-        android:drawSelectorOnTop="true"
-        android:fadingEdgeLength="0px"
         android:gravity="center"
-        android:listSelector="@null"
-        android:numColumns="7"
-        android:rowCount="0">
+        android:orientation="vertical"
+        android:layout_below="@+id/userNamesGroup">
 
-    </GridView>
+    <view
+        android:id="@+id/gameBoard"
+        class="edu.msu.maliklau.project1.ConnectFourView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
 
 </RelativeLayout>

@@ -7,39 +7,29 @@ import android.view.View;
 import android.widget.EditText;
 
 public class MainActivity extends ActionBarActivity {
-//    private GridView gridView;
-//    private GridViewAdapter gridAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(edu.msu.maliklau.project1.R.layout.activity_main);
-//        gridView = (GridView) findViewById(R.id.gridView);
-//        gridAdapter = new GridViewAdapter(this, R.layout.grid_item_layout, getData());
-//        gridView.setAdapter(gridAdapter);
+//
     }
+
     /**
      * Handle a Picture button press
+     *
      * @param view
      */
     public void onStart(View view) {
-        EditText ID1=(EditText) findViewById(R.id.userOneText);
-        EditText ID2=(EditText) findViewById(R.id.userTwoText);
-        Intent intent = new Intent(this, grid.class);
+        EditText ID1 = (EditText) findViewById(R.id.userOneText);
+        EditText ID2 = (EditText) findViewById(R.id.userTwoText);
+        Intent intent = new Intent(this, GameActivity.class);
         intent.putExtra("location", ID1.getText().toString());
         intent.putExtra("location1", ID2.getText().toString());
         startActivity(intent);
     }
 
-    /**
-     * Prepare some dummy data for gridview
-     */
-//    private ArrayList<ImageItem> getData() {
-//        final ArrayList<ImageItem> imageItems = new ArrayList<>();
-//        for (int i = 0; i < 42; i++) {
-//            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.slot);
-//            imageItems.add(new ImageItem(bitmap, "Image#" + i));
-//        }
-//        return imageItems;
-//    }
+
+
 }

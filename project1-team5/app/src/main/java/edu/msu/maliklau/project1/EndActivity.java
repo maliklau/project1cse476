@@ -9,7 +9,7 @@ import android.support.v7.app.ActionBarActivity;
  * Created by Lauren on 2/21/17.
  */
 
-public class EndActivity extends ActionBarActivity{
+public class EndActivity extends  ActionBarActivity {
 
 
     protected void onCreate(Bundle savedInstanceState) {
