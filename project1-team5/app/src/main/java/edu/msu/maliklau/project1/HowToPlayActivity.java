@@ -9,15 +9,14 @@ import android.support.v7.app.ActionBarActivity;
  * Created by Lauren on 2/21/17.
  */
 
-public class EndActivity extends  ActionBarActivity {
+public class HowToPlayActivity extends  ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(edu.msu.maliklau.project1.R.layout.end_activity);
+        setContentView(edu.msu.maliklau.project1.R.layout.howtoplay_activity);
 
     }
-
 
     public void onMainMenu(View view) {
 
@@ -25,12 +24,9 @@ public class EndActivity extends  ActionBarActivity {
         startActivity(intent);
     }
 
-    public void onRematch(View view) {
 
+    public void onRematch(View view) {
         Intent intent = new Intent(this, GameActivity.class);
         startActivity(intent);
     }
-
-
-
 }

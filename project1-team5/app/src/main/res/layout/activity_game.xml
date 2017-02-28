@@ -99,20 +99,16 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:layout_below="@+id/userNamesGroup">
+
 
     <view
         android:id="@+id/gameBoard"
         class="edu.msu.maliklau.project1.ConnectFourView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent"
+        android:layout_below="@id/userNamesGroup"/>
 
-    </LinearLayout>
+
 
 
 </RelativeLayout>

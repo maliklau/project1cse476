@@ -14,5 +14,14 @@
     <string name="winner">Winner:</string>
     <string name="user_two">user_2</string>
     <string name="user_one">user_1</string>
-
+    <string name="gamePlay">Play</string>
+    <string name="loser">Loser:</string>
+    <string name="rematchButton">REMATCH</string>
+    <string name="howToPlay">HOW TO PLAY</string>
+    <string name="gameInstructions">How To Play:</string>
+    <string name="instructionSteps">Each player will be assigned the WHITE SPARTAN disks or the GREEN SPARTAN disks.
+        Players will alternate turns dragging their disks in a desire locations or "slot", upon availability of each slot.
+        The object of the game is to have a vertical, horizontal or diagonal of four consecutive disks.
+        First player to obtain a "connect four" wins.
+        The player can undo there previous drag, but before selecting the "done" button, which will trade off turns. </string>
 </resources>

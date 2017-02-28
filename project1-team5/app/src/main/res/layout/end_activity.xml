@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="100sp">
+    android:layout_marginTop="50sp">
 
 
     <LinearLayout
@@ -20,7 +20,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/endgame_text"
         android:textStyle="bold"
-        android:text="@string/game_over" />
+        android:text="@string/game_over"
+        android:layout_marginBottom="20dp"/>
 
 
         <TextView
@@ -32,6 +33,15 @@
             android:textStyle="bold"
             android:text="@string/winner"  />
 
+        <TextView
+            android:textAlignment="center"
+            android:textSize="32sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/loser"
+            android:textStyle="bold"
+            android:text="@string/loser"  />
+
         <Button
                 android:textAlignment="center"
                 android:gravity="center_horizontal"
@@ -40,6 +50,15 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/returnToMainMenu"
                 android:onClick="onMainMenu" />
+
+        <Button
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            android:text="@string/rematchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/restartGameActivity"
+            android:onClick="onRematch"/>
         </LinearLayout>
 
 
