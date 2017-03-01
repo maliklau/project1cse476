@@ -51,15 +51,7 @@
                 android:id="@+id/returnToMainMenu"
                 android:onClick="onMainMenu" />
 
-        <Button
-            android:textAlignment="center"
-            android:gravity="center_horizontal"
-            android:text="@string/rematchButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/restartGameActivity"
-            android:onClick="onRematch"/>
-        </LinearLayout>
+    </LinearLayout>
 
 
     </LinearLayout>

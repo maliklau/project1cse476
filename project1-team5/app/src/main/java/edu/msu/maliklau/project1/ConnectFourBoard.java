@@ -3,11 +3,12 @@ package edu.msu.maliklau.project1;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.support.v7.app.ActionBarActivity;
+
+
 import java.util.ArrayList;
 
 
-public class ConnectFourBoard extends ActionBarActivity {
+public class ConnectFourBoard {
 
 
     /**

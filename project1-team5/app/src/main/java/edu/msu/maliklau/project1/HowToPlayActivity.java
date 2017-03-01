@@ -2,14 +2,14 @@ package edu.msu.maliklau.project1;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.support.v7.app.ActionBarActivity;
 
 /**
  * Created by Lauren on 2/21/17.
  */
 
-public class HowToPlayActivity extends  ActionBarActivity {
+public class HowToPlayActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +25,4 @@ public class HowToPlayActivity extends  ActionBarActivity {
     }
 
 
-    public void onRematch(View view) {
-        Intent intent = new Intent(this, GameActivity.class);
-        startActivity(intent);
-    }
 }

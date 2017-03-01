@@ -19,6 +19,7 @@
         <activity android:name=".ConnectFourBoard" />
         <activity android:name=".GameActivity"></activity>
         <activity android:name=".EndActivity"></activity>
+        <activity android:name=".HowToPlayActivity"></activity>
     </application>
 
 </manifest>
