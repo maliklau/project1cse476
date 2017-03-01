@@ -3,10 +3,14 @@ package edu.msu.maliklau.project1;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.view.menu.MenuView;
 import android.view.View;
 import android.widget.TextView;
 
 public class GameActivity extends AppCompatActivity {
+
+    private static final String PLAYERONENAME = "PlayerOneName";
+    private static final String PLAYERTWONAME = "PlayerTwoName";
 
 
     @Override
@@ -20,7 +24,6 @@ public class GameActivity extends AppCompatActivity {
         String tv2 = in1.getExtras().getString("location1");
         ((TextView) findViewById(R.id.userTwoData)).setText(tv2);
     }
-
 
     //ON SURRENDER PUBLIC VOID
     //ONDONE        PUBLIC VOID

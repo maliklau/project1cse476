@@ -13,15 +13,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-    <TextView
-        android:textAlignment="center"
-        android:textSize="32sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/endgame_text"
-        android:textStyle="bold"
-        android:text="@string/game_over"
-        android:layout_marginBottom="20dp"/>
+        <TextView
+            android:textAlignment="center"
+            android:textSize="32sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/endgame_text"
+            android:textStyle="bold"
+            android:text="@string/game_over"
+            android:layout_marginBottom="20dp"/>
 
 
         <TextView
@@ -43,18 +43,18 @@
             android:text="@string/loser"  />
 
         <Button
-                android:textAlignment="center"
-                android:gravity="center_horizontal"
-                android:text="@string/mainMenuButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/returnToMainMenu"
-                android:onClick="onMainMenu" />
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            android:text="@string/mainMenuButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/returnToMainMenu"
+            android:onClick="onMainMenu" />
 
     </LinearLayout>
 
 
-    </RelativeLayout>
+</RelativeLayout>
 
 
 

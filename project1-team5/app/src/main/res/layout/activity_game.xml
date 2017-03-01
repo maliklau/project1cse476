@@ -4,6 +4,10 @@
     android:layout_height="match_parent"
     android:background="#f0f0f0">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/button_group"
@@ -64,7 +68,6 @@
         android:id="@+id/userNamesGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button_group"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -99,16 +102,20 @@
 
     </LinearLayout>
 
-
-
-    <view
-        android:id="@+id/gameBoard"
-        class="edu.msu.maliklau.project1.ConnectFourView"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/userNamesGroup"/>
+        android:orientation="vertical">
+
+        <view
+            android:id="@+id/gameBoard"
+            class="edu.msu.maliklau.project1.ConnectFourView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
 
+    </LinearLayout>
 
+    </LinearLayout>
 
 </RelativeLayout>

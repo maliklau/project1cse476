@@ -1,6 +1,7 @@
 package edu.msu.maliklau.project1;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.os.Bundle;
 import android.util.AttributeSet;
@@ -40,9 +41,5 @@ public class ConnectFourView extends View{
         super.onDraw(canvas);
         board.draw(canvas);
     }
-
-
-
-
 
 }

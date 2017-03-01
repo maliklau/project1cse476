@@ -2,6 +2,7 @@ package edu.msu.maliklau.project1;
 
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 
 
@@ -41,7 +42,7 @@ public class ConnectFourBoard {
      */
     private int marginY;
 
-    private ConnectFourView ConnectFourView;
+   // private Bitmap connectFourComplete;
 
 
 
@@ -57,10 +58,14 @@ public class ConnectFourBoard {
      */
     final static float SCALE_IN_VIEW = 0.9f;
 
+    /**
+     * Collection of puzzle pieces
+     */
+    public ArrayList<ConnectFourBoard> connects = new ArrayList<ConnectFourBoard>();
 
     public ConnectFourBoard(Context context) {
 
-
+       // connects.add(new ConnectFourBoard(context, R.drawable.spartan_green));
         // Load the puzzle pieces
         for (int row = 0; row <= 6; row++) {
             for (int column = 0; column <= 5; column++) {
