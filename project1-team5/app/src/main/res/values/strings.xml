@@ -20,22 +20,17 @@
     <string name="howToPlay">HOW TO PLAY</string>
     <string name="gameInstructions">How To Play:</string>
     <string name="instructionSteps">
-        The object of the game is to get a connect of  escape the sewers! It is your job to make sure the spooky creatures
-        are safely moved to the Ghost Containment Facility.
+        The object of the game is to get a consecutive four in a row of you connect! The connects can be vertical,
+        horizontal, or diagonal!
         \n\n
-        Take turns placing GCP (ghost containment pipes) on to the gameboard by dragging a GCP from
-        your dock to the board and pressing INSTALL.
+        Take turns placing the your colored connect (green or white) by dragging the connect to an open spot,
+        then click done.
         \n\n
-        If you do not have a use for a GCP, you can select it and hit the DISCARD button to have
-        a new pipe your next turn.
+        If you wish to undo you move select the undo button
         \n\n
-        If you feel overwhelmed by the spectral beings, you can hit the forfeit button on your turn.
+        If you no longer want to play the game, you can hit the forfeit button on your turn, resulting in a win for the opposite player.
         \n\n
-        Once you have a safely sealed connection to the Ghost Containment Facility, press the
-        OPEN button to start the flow of ghosts. But be careful! If there are any leaks in your
-        system the ghosts will escape and you will lose!
         \n\n
-        Good luck! The City of East Lansing is counting on you!
     </string>
 
     <string name="back_to_menu_button">Back to main menu</string>
