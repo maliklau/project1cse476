@@ -50,30 +50,10 @@ public class ConnectFourView extends View{
         board.draw(canvas);
     }
 
-    private class Touch {
-        public float dX = 0;
-
-        public float dY = 0;
-
-        public int id = -1;
-
-        public float x = 0;
-
-        public float y = 0;
-
-        public float lastX = 0;
-
-        public float lastY = 0;
-
-        public void copyToLast() {
-            lastX = x;
-            lastY = y;
-        }
-
-        public void computeDeltas() {
-            dX = x - lastX;
-            dY = y - lastY;
-        }
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        invalidate();
+        return board.onTouchEvent(this, event);
     }
 
 

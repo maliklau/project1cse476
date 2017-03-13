@@ -5,6 +5,7 @@ import android.content.Context;
 
 import android.graphics.Canvas;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -140,7 +141,7 @@ public class ConnectFourBoard {
         switch (event.getActionMasked()) {
 
             case MotionEvent.ACTION_DOWN:
-                // Log.i("onTouchEvent", "ACTION_DOWN");
+                 //Log.i("onTouchEvent", "ACTION_DOWN");
                 return onTouched(relX, relY);
             // return true;
 
@@ -148,6 +149,7 @@ public class ConnectFourBoard {
             case MotionEvent.ACTION_CANCEL:
                 // Log.i("onTouchEvent", "ACTION_UP");'
                 return onReleased(view, relX, relY);
+
 
             case MotionEvent.ACTION_MOVE:
                 // Log.i("onTouchEvent",  "ACTION_MOVE: ");
@@ -177,8 +179,9 @@ public class ConnectFourBoard {
         for(int p=pieces.size()-1; p>=0;  p--) {
             if(pieces.get(p).hit(x, y, boardSize, scaleFactor)) {
                 // We hit a piece!
-
-
+                dragging = pieces.get(p);
+                lastRelX = x;
+                lastRelY = y;
                 return true;
             }
         }
