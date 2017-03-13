@@ -1,13 +1,11 @@
 package edu.msu.maliklau.project1;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Canvas;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Toast;
 
 import java.io.Serializable;
 
@@ -15,39 +13,60 @@ import java.io.Serializable;
  * Created by Savanna on 2/27/2017.
  */
 
+
 public class ConnectFourView extends View{
 
-    private ConnectFourBoard board;
+    public final static String BOARD_SIZE = "edu.msu.maliklau.project1.BOARD_SIZE";
+    public final static String CONNECT_FOUR_BOARD = "playingArea";
 
-    public final static String PLAYING_AREA = "playingArea";
-    public final static String CONNECT_BANK = "connectBank";
+    private Parameters params = null;
+
+    private ConnectFourBoard connectBoard = null;
+
+
+    private ConnectFourBoard board = null;
+
+    private Context context;
+
+
+
     public final static String PARAMETERS = "parameters";
 
     public ConnectFourView(Context context) {
         super(context);
-        init(null, 0);
+        init(context, null, 0);
     }
 
     public ConnectFourView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(attrs, 0);
+        init(context, attrs, 0);
     }
 
     public ConnectFourView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        init(attrs, defStyle);
+        init(context, attrs, defStyle);
     }
 
-    private void init(AttributeSet attrs, int defStyle) {
-
+    private void init(Context con, AttributeSet attrs, int defStyle) {
+        context = con;
         board = new ConnectFourBoard(getContext());
+    }
 
+    public void startGame(){
+        params = new Parameters(((GameActivity)context).getIntent().getStringExtra(MainActivity.PLAYERONENAME), ((GameActivity)context).getIntent().getStringExtra(MainActivity.PLAYERTWONAME));
+
+    }
+
+    public boolean isInitialized() {
+        return board != null;
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         board.draw(canvas);
+
+
     }
 
     @Override
@@ -63,6 +82,7 @@ public class ConnectFourView extends View{
      */
     public void saveInstanceState(Bundle bundle) {
         board.saveInstanceState(bundle);
+        bundle.putSerializable(PARAMETERS, params);
     }
 
 
@@ -70,8 +90,10 @@ public class ConnectFourView extends View{
      * Load the puzzle from a bundle
      * @param bundle The bundle we save to
      */
-    public void loadInstanceState(Bundle bundle) {
+    public void loadState(Bundle bundle) {
         board.loadInstanceState(bundle);
+        params = (Parameters) bundle.getSerializable(PARAMETERS);
+
     }
 
     public ConnectFourBoard getConnectFourBoard() {
@@ -80,4 +102,68 @@ public class ConnectFourView extends View{
 
 
 
+
+
+    public boolean isPlayerOneTurn() {
+        return params.playerOneTurn;
+    }
+
+    public boolean isPlayerTwoTurn() {
+        return params.playerTwoTurn;
+    }
+
+    public void switchTurn() {
+        if (isPlayerOneTurn()) {
+            params.playerOneTurn = false;
+            params.playerTwoTurn = true;
+        } else {
+            params.playerOneTurn = true;
+            params.playerTwoTurn = false;
+        }
+    }
+
+
+
+    public void saveState(Bundle bundle) {
+        bundle.putSerializable(PARAMETERS, params);
+    }
+
+    public Player getPlayerOne() {
+        return params.playerOne;
+    }
+
+    public Player getPlayerTwo() {
+        return params.playerTwo;
+    }
+
+    /*public void initialize(Intent intent) {
+        params.boardSize = intent.getSerializableExtra(BOARD_SIZE);
+        initialize(params.boardSize);
+    }*/
+
+    public void setPlayers(Player playerOne, Player playerTwo) {
+
+        params.playerOne = playerOne;
+        params.playerTwo = playerTwo;
+    }
+
+
+
+    private static class Parameters implements Serializable {
+
+
+        public Parameters(String playeronename, String playertwoname) {
+
+            playerOne = new Player (playeronename);
+            playerTwo = new Player (playertwoname);
+        }
+
+        //public boardSize;
+        public boolean playerOneTurn = true;
+        public boolean playerTwoTurn = false;
+
+        public Player playerOne;
+        public Player playerTwo;
+
+    }
 }
