@@ -1,7 +1,9 @@
 package edu.msu.maliklau.project1;
 
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Canvas;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -39,6 +41,12 @@ public class ConnectFourBoard {
      */
     private float scaleFactor;
 
+
+    /**
+     * How much we scale the puzzle pieces
+     */
+    private int turn=1;
+
     /**
      * Left margin in pixels
      */
@@ -53,16 +61,18 @@ public class ConnectFourBoard {
      * This variable is set to a piece we are dragging. If
      * we are not dragging, the variable is null.
      */
-   // private ConnectPiece dragging = null;
+    // private ConnectPiece dragging = null;
 
-   // private Bitmap connectFourComplete;
+    // private Bitmap connectFourComplete;
 
     /**
      * Collection of puzzle pieces
      */
     public ArrayList<ConnectPiece> pieces = new ArrayList<ConnectPiece>();
 
+    public  int row1[]={0,0,0,0,0,0,0};
 
+    public  int[][] disk=new int[7][6];
     /**
      * Collection of board cells
      */
@@ -76,10 +86,10 @@ public class ConnectFourBoard {
     final static float SCALE_IN_VIEW = 0.9f;
 
 
-
+    private Context text;
     public ConnectFourBoard(Context context) {
 
-       // connects.add(new ConnectFourBoard(context, R.drawable.spartan_green));
+        // connects.add(new ConnectFourBoard(context, R.drawable.spartan_green));
         // Load the puzzle pieces
         for (int row = 0; row <= 6; row++) {
             for (int column = 0; column <= 5; column++) {
@@ -87,18 +97,53 @@ public class ConnectFourBoard {
                         (float) (row + .5) / 7,
                         (float) (column + .5) / 6
                 ));
+                disk[row][column]=0;
             }
         }
 
+        callmessage(context);
         // Load the puzzle pieces
         pieces.add(new ConnectPiece(context,
                 R.drawable.spartan_green,
                 0.259f,
                 0.238f));
 
-
+        text=context;
     }
 
+    public void callmessage(Context context){
+
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(context);
+        builder1.setMessage("User 1 turn!");
+        builder1.setCancelable(true);
+
+        builder1.setPositiveButton(
+                "continue",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert11 = builder1.create();
+        alert11.show();
+    }
+
+    public void callmessage1(Context context){
+
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(context);
+        builder1.setMessage("User 2 turn!");
+        builder1.setCancelable(true);
+
+        builder1.setPositiveButton(
+                "continue",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert11 = builder1.create();
+        alert11.show();
+    }
 
     public void draw(Canvas canvas) {
 
@@ -138,7 +183,7 @@ public class ConnectFourBoard {
         switch (event.getActionMasked()) {
 
             case MotionEvent.ACTION_DOWN:
-                 //Log.i("onTouchEvent", "ACTION_DOWN");
+                //Log.i("onTouchEvent", "ACTION_DOWN");
                 return onTouched(relX, relY);
             // return true;
 
@@ -185,7 +230,176 @@ public class ConnectFourBoard {
 
         return false;
     }
-
+    /**
+     * Handle a touch message. This is when we get an initial touch
+     * @param x x location for the touch, relative to the puzzle - 0 to 1 over the puzzle
+     * @param y y location for the touch, relative to the puzzle - 0 to 1 over the puzzle
+     * @return true if the touch is handled
+     */
+    private boolean checkhorizontal(int x, int y) {
+        int count;
+        int row=x;
+        int column=y;
+        count=0;
+        for(int i=0;i<=2;i++)
+        {
+            if(row>=1)
+            {
+                row=row-1;
+                if(disk[row][column]==disk[x][y])
+                {
+                    count+=1;
+                }
+            }
+        }
+        if(count==3){
+            return true;
+        }
+        count=0;
+        row=x;
+        column=y;
+        for(int i=0;i<=2;i++)
+        {
+            if(row<=5)
+            {
+                row=row+1;
+                if(disk[row][column]==disk[x][y])
+                {
+                    count+=1;
+                }
+            }
+        }
+        if(count==3){
+            return true;
+        }
+        return false;
+    }
+    /**
+     * Handle a touch message. This is when we get an initial touch
+     * @param x x location for the touch, relative to the puzzle - 0 to 1 over the puzzle
+     * @param y y location for the touch, relative to the puzzle - 0 to 1 over the puzzle
+     * @return true if the touch is handled
+     */
+    private boolean checkvertical(int x, int y) {
+        int count;
+        int row=x;
+        int column=y;
+        count=0;
+        for(int i=0;i<=2;i++)
+        {
+            if(column>=1)
+            {
+                column=column-1;
+                if(disk[row][column]==disk[x][y])
+                {
+                    count+=1;
+                }
+            }
+        }
+        if(count==3){
+            return true;
+        }
+        count=0;
+        row=x;
+        column=y;
+        for(int i=0;i<=2;i++)
+        {
+            if(column<=4)
+            {
+                column=column+1;
+                if(disk[row][column]==disk[x][y])
+                {
+                    count+=1;
+                }
+            }
+        }
+        if(count==3){
+            return true;
+        }
+        return false;
+    }
+    /**
+     * Handle a touch message. This is when we get an initial touch
+     * @param x x location for the touch, relative to the puzzle - 0 to 1 over the puzzle
+     * @param y y location for the touch, relative to the puzzle - 0 to 1 over the puzzle
+     * @return true if the touch is handled
+     */
+    private boolean checkdiagonal(int x, int y) {
+        int count;
+        int row=x;
+        int column=y;
+        count=0;
+        for(int i=0;i<=2;i++)
+        {
+            if(column>=1 && row>=1)
+            {
+                column=column-1;
+                row=row-1;
+                if(disk[row][column]==disk[x][y])
+                {
+                    count+=1;
+                }
+            }
+        }
+        if(count==3){
+            return true;
+        }
+        count=0;
+        row=x;
+        column=y;
+        for(int i=0;i<=2;i++)
+        {
+            if(column<=4 && row<=5)
+            {
+                column=column+1;
+                row=row+1;
+                if(disk[row][column]==disk[x][y])
+                {
+                    count+=1;
+                }
+            }
+        }
+        if(count==3){
+            return true;
+        }
+        count=0;
+        row=x;
+        column=y;
+        for(int i=0;i<=2;i++)
+        {
+            if(column>=1 && row<=5)
+            {
+                column=column-1;
+                row=row+1;
+                if(disk[row][column]==disk[x][y])
+                {
+                    count+=1;
+                }
+            }
+        }
+        if(count==3){
+            return true;
+        }
+        count=0;
+        row=x;
+        column=y;
+        for(int i=0;i<=2;i++)
+        {
+            if(column<=4 && row>=1)
+            {
+                column=column+1;
+                row=row-1;
+                if(disk[row][column]==disk[x][y])
+                {
+                    count+=1;
+                }
+            }
+        }
+        if(count==3){
+            return true;
+        }
+        return false;
+    }
     /**
      * Handle a release of a touch message.
      * @param x x location for the touch release, relative to the puzzle - 0 to 1 over the puzzle
@@ -193,6 +407,105 @@ public class ConnectFourBoard {
      * @return true if the touch is handled
      */
     private boolean onReleased(View view, float x, float y) {
+        int row;
+        row = (int) ((x + 0.03) * 7 - 0.5);
+        row1[row] += 1;
+        if (row1[row] >= 7) {
+            AlertDialog.Builder builder1 = new AlertDialog.Builder(text);
+            builder1.setMessage("invalid");
+            builder1.setCancelable(true);
+
+            builder1.setPositiveButton(
+                    "continue",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alert11 = builder1.create();
+            alert11.show();
+            return false;
+        }
+        int column = 5 - row1[row];
+        int column1=column+1;
+        disk[row][column1] = turn;
+
+        float Y=(float) (column + .5) / 6;
+        Y+=.010+0.025*row1[row];
+        dragging.setX((float) (row + .5) / 7);
+        dragging.setY(Y);
+        boolean result = false;
+        result = checkhorizontal(row, column1);
+        if (result == true){
+            AlertDialog.Builder builder1 = new AlertDialog.Builder(text);
+            builder1.setMessage("Horizontal win for the user "+turn);
+            builder1.setCancelable(true);
+
+            builder1.setPositiveButton(
+                    "continue",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alert11 = builder1.create();
+            alert11.show();
+            return false;
+        }
+        result=checkvertical(row,column1);
+        if (result == true){
+            AlertDialog.Builder builder1 = new AlertDialog.Builder(text);
+            builder1.setMessage("Vertical win for the user "+turn);
+            builder1.setCancelable(true);
+
+            builder1.setPositiveButton(
+                    "continue",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alert11 = builder1.create();
+            alert11.show();
+            return false;
+        }
+        result=checkdiagonal(row,column1);
+        if (result == true){
+            AlertDialog.Builder builder1 = new AlertDialog.Builder(text);
+            builder1.setMessage("Diagonal win for the user "+turn);
+            builder1.setCancelable(true);
+
+            builder1.setPositiveButton(
+                    "continue",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alert11 = builder1.create();
+            alert11.show();
+            return false;
+        }
+        if(turn==1)
+        {
+            pieces.add(new ConnectPiece(text,
+                    R.drawable.spartan_white,
+                    0.259f,
+                    0.238f));
+            turn=2;
+            callmessage1(text);
+        }
+        else
+        {
+            pieces.add(new ConnectPiece(text,
+                    R.drawable.spartan_green,
+                    0.259f,
+                    0.238f));
+            turn=1;
+            callmessage(text);
+        }
+        // dragging.setX(marginX + X * boardSize);
+        // dragging.setY(marginY + Y * boardSize * 6 / 7.0f);
 
         if(dragging != null) {
             dragging = null;

@@ -14,7 +14,7 @@ Responsiblity: Facilitated the creation of git repository and worked on the end_
 
 Member 2: Savanna Pinkoski
 
-Responsiblity: Implemented drawing the grid in the grid class, created end_activity, and its organization of layout, help organize in naming of main_activity. Implemented the surrender/done/main activity buttons to navigate between layouts. 
+Responsiblity: Implemented drawing the grid in the grid class, created end_activity, and its organization of layout, help organize in naming of main_activity. Implemented the surrender/done/main activity buttons to navigate between layouts. Functionality of the drawing the connect pieces and the movement, used a 2d array to draw the slots for the entire grid. Re did the main, end activity views/buttons for simplicity, allowed for a dialogue box on how to play, and allowing the users to enter there names in (player class). Implemented the inital players turn and to alternate between players. Functionality of forfi=eit
 
 
 
