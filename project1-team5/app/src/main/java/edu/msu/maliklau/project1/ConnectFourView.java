@@ -26,6 +26,7 @@ public class ConnectFourView extends View {
 
     private ConnectFourBoard board = null;
 
+
     private Context context;
 
 
@@ -143,6 +144,10 @@ public class ConnectFourView extends View {
     public void done() {
 
         switchTurn();
+        invalidate();
+    }
+
+    public void redrawBoard() {
         invalidate();
     }
 

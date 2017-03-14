@@ -49,6 +49,12 @@ public class GameActivity extends AppCompatActivity {
     @OnClick(R.id.undo)
     public void onUndoFABClick() {
 
+        getConnectFourBoard().undomove();
+        getConnectFourView().redrawBoard();
+       // getConnectFourBoard().draw(Canvas canvas);
+
+
+
     }
 
     @OnClick(R.id.forfeit)
@@ -71,7 +77,7 @@ public class GameActivity extends AppCompatActivity {
     public void onDoneFABClick() {
 
        getConnectFourView().done();
-       // getConnectFourBoard().connectSwitch();
+       getConnectFourBoard().connectSwitch();
         updateUI();
     }
 
@@ -89,9 +95,9 @@ public class GameActivity extends AppCompatActivity {
     ConnectFourView getConnectFourView() {
         return (ConnectFourView) findViewById(R.id.gameView);
     }
-   /* ConnectFourBoard getConnectFourBoard(){
-        return (ConnectFourBoard) findViewById(R.id.gameView);
-    }*/
+    ConnectFourBoard getConnectFourBoard() {
+       return getConnectFourView().getConnectFourBoard();
+   }
 
     private void updateUI() {
         if (getConnectFourView().isPlayerOneTurn()) {

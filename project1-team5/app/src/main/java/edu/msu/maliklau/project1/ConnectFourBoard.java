@@ -101,7 +101,7 @@ public class ConnectFourBoard {
             }
         }
 
-        callmessage(context);
+    //    callmessage(context);
         // Load the puzzle pieces
         pieces.add(new ConnectPiece(context,
                 R.drawable.spartan_green,
@@ -145,8 +145,12 @@ public class ConnectFourBoard {
         alert11.show();
     }
 
+    public Canvas canvasOne;
+
     public void draw(Canvas canvas) {
 
+
+        canvasOne = canvas;
         int wid = canvas.getWidth();
         int hit = canvas.getHeight();
 
@@ -475,7 +479,7 @@ public class ConnectFourBoard {
             return false;
         }
 
-        connectSwitch();
+        //connectSwitch();
 
 
 
@@ -498,7 +502,7 @@ public class ConnectFourBoard {
                     0.259f,
                     0.238f));
             turn=2;
-            callmessage1(text);
+           // callmessage1(text);
         }
         else
         {
@@ -507,10 +511,18 @@ public class ConnectFourBoard {
                     0.259f,
                     0.238f));
             turn=1;
-            callmessage(text);
+            //callmessage(text);
         }
     }
 
+    public void undomove() {
+
+
+        pieces.remove(pieces.size()-1);
+        draw(canvasOne);
+
+
+    }
 
     /**
      * Read the board from a bundle
@@ -528,6 +540,8 @@ public class ConnectFourBoard {
 
     public void saveInstanceState(Bundle bundle) {
     }
+
+
 }
 
 
