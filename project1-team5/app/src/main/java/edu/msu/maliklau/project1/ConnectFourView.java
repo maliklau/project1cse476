@@ -147,7 +147,7 @@ public class ConnectFourView extends View {
         invalidate();
     }
 
-    public void redrawBoard() {
+    public void redraw() {
         invalidate();
     }
 

@@ -20,12 +20,12 @@
         The object of the game is to get a consecutive four in a row of you connect! The connects can be vertical,
         horizontal, or diagonal!
         \n\n
-        Take turns placing the your colored connect (green or white) by dragging the connect to an open spot,
-        then click done.
+        Take turns placing the your assigned colored connect (green or white) in a desired column by dragging the connect to that column.
         \n\n
-        If you wish to undo you move select the undo button
+        If you change you mind, click the undo button, and try again. Once you have made your final decision click the done
+        button to switch off players.
         \n\n
-        If you no longer want to play the game, you can hit the forfeit button on your turn, resulting in a win for the opposite player.
+        If you no longer want to play the game, you can click the forfeit button on your turn, resulting in your lose and win for the opposite player.
         \n\n
         \n\n
     </string>

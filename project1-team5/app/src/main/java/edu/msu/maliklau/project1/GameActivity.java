@@ -13,9 +13,8 @@ import butterknife.OnClick;
 
 public class GameActivity extends AppCompatActivity {
 
-//    @BindView(R.id.currentPlayer)
+    //    @BindView(R.id.currentPlayer)
     TextView currentPlayerTV;
-
 
 
     @BindView(R.id.forfeit)
@@ -50,9 +49,9 @@ public class GameActivity extends AppCompatActivity {
     public void onUndoFABClick() {
 
         getConnectFourBoard().undomove();
-        getConnectFourView().redrawBoard();
-       // getConnectFourBoard().draw(Canvas canvas);
+        getConnectFourView().redraw();
 
+        // getConnectFourBoard().draw(Canvas canvas);
 
 
     }
@@ -76,8 +75,8 @@ public class GameActivity extends AppCompatActivity {
     @OnClick(R.id.done)
     public void onDoneFABClick() {
 
-       getConnectFourView().done();
-       getConnectFourBoard().connectSwitch();
+        getConnectFourView().done();
+        getConnectFourBoard().connectSwitch();
         updateUI();
     }
 
@@ -95,9 +94,10 @@ public class GameActivity extends AppCompatActivity {
     ConnectFourView getConnectFourView() {
         return (ConnectFourView) findViewById(R.id.gameView);
     }
+
     ConnectFourBoard getConnectFourBoard() {
-       return getConnectFourView().getConnectFourBoard();
-   }
+        return getConnectFourView().getConnectFourBoard();
+    }
 
     private void updateUI() {
         if (getConnectFourView().isPlayerOneTurn()) {

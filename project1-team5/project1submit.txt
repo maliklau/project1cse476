@@ -14,13 +14,13 @@ Responsiblity: Facilitated the creation of git repository and worked on the end_
 
 Member 2: Savanna Pinkoski
 
-Responsiblity: Implemented drawing the grid in the grid class, created end_activity, and its organization of layout, help organize in naming of main_activity. Implemented the surrender/done/main activity buttons to navigate between layouts. Functionality of the drawing the connect pieces and the movement, used a 2d array to draw the slots for the entire grid. Re did the main, end activity views/buttons for simplicity, allowed for a dialogue box on how to play, and allowing the users to enter there names in (player class). Implemented the inital players turn and to alternate between players. Functionality of forfi=eit
+Responsiblity: Implemented drawing the grid in the grid class, created end_activity, and its organization of layout, help organize in naming of main_activity. Implemented the surrender/done/main activity buttons to navigate between layouts. Created a dialogue box for how to play instructions. Functionality of the drawing the connect pieces and the movement, used a 2d array to draw the slots for the entire grid. Re did the main, end activity views/buttons for simplicity, created a  dialogue box for how to play, and the option to edit user naame using a dialogue box. Implemented the inital players turn and to alternate between players in the game activty. Functionality of forfieit, moving to the end activity. Functionality of done button, to switch off players and connect color. Functionality of undo button. 
 
 
 
 Member 3: Yuqi Xiao
 
-Responsiblity: Wrote main_activity code, and buttons for game_activity. Designed layout of main_activity and game_activity. He helped to draw the gridview and image of the game grid.
+Responsiblity: Wrote main_activity code, and buttons for game_activity. Designed layout of main_activity and game_activity. He helped to draw the gridview and image of the game grid. Functionality of on touch and on release functions, the snapping of the connect piece. Implemented check and toast for a vertical, horizontal, diagonal win. 
 
 
 

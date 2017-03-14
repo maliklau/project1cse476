@@ -45,7 +45,7 @@ public class ConnectFourBoard {
     /**
      * How much we scale the puzzle pieces
      */
-    private int turn=1;
+    private int turn = 1;
 
     /**
      * Left margin in pixels
@@ -70,9 +70,9 @@ public class ConnectFourBoard {
      */
     public ArrayList<ConnectPiece> pieces = new ArrayList<ConnectPiece>();
 
-    public  int row1[]={0,0,0,0,0,0,0};
+    public int row1[] = {0, 0, 0, 0, 0, 0, 0};
 
-    public  int[][] disk=new int[7][6];
+    public int[][] disk = new int[7][6];
     /**
      * Collection of board cells
      */
@@ -87,6 +87,7 @@ public class ConnectFourBoard {
 
 
     private Context text;
+
     public ConnectFourBoard(Context context) {
 
         // connects.add(new ConnectFourBoard(context, R.drawable.spartan_green));
@@ -97,21 +98,21 @@ public class ConnectFourBoard {
                         (float) (row + .5) / 7,
                         (float) (column + .5) / 6
                 ));
-                disk[row][column]=0;
+                disk[row][column] = 0;
             }
         }
 
-    //    callmessage(context);
+        //    callmessage(context);
         // Load the puzzle pieces
         pieces.add(new ConnectPiece(context,
                 R.drawable.spartan_green,
                 0.259f,
                 0.238f));
 
-        text=context;
+        text = context;
     }
 
-    public void callmessage(Context context){
+    public void callmessage(Context context) {
 
         AlertDialog.Builder builder1 = new AlertDialog.Builder(context);
         builder1.setMessage("User 1 turn!");
@@ -128,7 +129,7 @@ public class ConnectFourBoard {
         alert11.show();
     }
 
-    public void callmessage1(Context context){
+    public void callmessage1(Context context) {
 
         AlertDialog.Builder builder1 = new AlertDialog.Builder(context);
         builder1.setMessage("User 2 turn!");
@@ -158,7 +159,7 @@ public class ConnectFourBoard {
         int minDim = wid < hit ? wid : hit;
 
         boardSize = (int) (minDim * SCALE_IN_VIEW);
-        puzzleHeight = (boardSize * 6/7);
+        puzzleHeight = (boardSize * 6 / 7);
 
         // Compute the margins so we center the puzzle
         marginX = (wid - boardSize) / 2;
@@ -171,7 +172,7 @@ public class ConnectFourBoard {
             piece.draw(canvas, marginX, marginY, boardSize, scaleFactor);
         }
 
-        for ( ConnectPiece piece : pieces) {
+        for (ConnectPiece piece : pieces) {
             piece.draw(canvas, marginX, marginY, boardSize, scaleFactor);
         }
 
@@ -214,6 +215,7 @@ public class ConnectFourBoard {
 
     /**
      * Handle a touch message. This is when we get an initial touch
+     *
      * @param x x location for the touch, relative to the puzzle - 0 to 1 over the puzzle
      * @param y y location for the touch, relative to the puzzle - 0 to 1 over the puzzle
      * @return true if the touch is handled
@@ -222,8 +224,8 @@ public class ConnectFourBoard {
 
         // Check each piece to see if it has been hit
         // We do this in reverse order so we find the pieces in front
-        for(int p=pieces.size()-1; p>=0;  p--) {
-            if(pieces.get(p).hit(x, y, boardSize, scaleFactor)) {
+        for (int p = pieces.size() - 1; p >= 0; p--) {
+            if (pieces.get(p).hit(x, y, boardSize, scaleFactor)) {
                 // We hit a piece!
                 dragging = pieces.get(p);
                 lastRelX = x;
@@ -234,174 +236,156 @@ public class ConnectFourBoard {
 
         return false;
     }
+
     /**
-     Checks horizontal win
+     * Checks horizontal win
      */
     private boolean checkhorizontal(int x, int y) {
         int count;
-        int row=x;
-        int column=y;
-        count=0;
-        for(int i=0;i<=2;i++)
-        {
-            if(row>=1)
-            {
-                row=row-1;
-                if(disk[row][column]==disk[x][y])
-                {
-                    count+=1;
+        int row = x;
+        int column = y;
+        count = 0;
+        for (int i = 0; i <= 2; i++) {
+            if (row >= 1) {
+                row = row - 1;
+                if (disk[row][column] == disk[x][y]) {
+                    count += 1;
                 }
             }
         }
-        if(count==3){
+        if (count == 3) {
             return true;
         }
-        count=0;
-        row=x;
-        column=y;
-        for(int i=0;i<=2;i++)
-        {
-            if(row<=5)
-            {
-                row=row+1;
-                if(disk[row][column]==disk[x][y])
-                {
-                    count+=1;
+        count = 0;
+        row = x;
+        column = y;
+        for (int i = 0; i <= 2; i++) {
+            if (row <= 5) {
+                row = row + 1;
+                if (disk[row][column] == disk[x][y]) {
+                    count += 1;
                 }
             }
         }
-        if(count==3){
+        if (count == 3) {
             return true;
         }
         return false;
     }
+
     /**
-     Checks vertical win
+     * Checks vertical win
      */
     private boolean checkvertical(int x, int y) {
         int count;
-        int row=x;
-        int column=y;
-        count=0;
-        for(int i=0;i<=2;i++)
-        {
-            if(column>=1)
-            {
-                column=column-1;
-                if(disk[row][column]==disk[x][y])
-                {
-                    count+=1;
+        int row = x;
+        int column = y;
+        count = 0;
+        for (int i = 0; i <= 2; i++) {
+            if (column >= 1) {
+                column = column - 1;
+                if (disk[row][column] == disk[x][y]) {
+                    count += 1;
                 }
             }
         }
-        if(count==3){
+        if (count == 3) {
             return true;
         }
-        count=0;
-        row=x;
-        column=y;
-        for(int i=0;i<=2;i++)
-        {
-            if(column<=4)
-            {
-                column=column+1;
-                if(disk[row][column]==disk[x][y])
-                {
-                    count+=1;
+        count = 0;
+        row = x;
+        column = y;
+        for (int i = 0; i <= 2; i++) {
+            if (column <= 4) {
+                column = column + 1;
+                if (disk[row][column] == disk[x][y]) {
+                    count += 1;
                 }
             }
         }
-        if(count==3){
+        if (count == 3) {
             return true;
         }
         return false;
     }
+
     /**
-     Checks diagonal win
+     * Checks diagonal win
      */
     private boolean checkdiagonal(int x, int y) {
         int count;
-        int row=x;
-        int column=y;
-        count=0;
-        for(int i=0;i<=2;i++)
-        {
-            if(column>=1 && row>=1)
-            {
-                column=column-1;
-                row=row-1;
-                if(disk[row][column]==disk[x][y])
-                {
-                    count+=1;
+        int row = x;
+        int column = y;
+        count = 0;
+        for (int i = 0; i <= 2; i++) {
+            if (column >= 1 && row >= 1) {
+                column = column - 1;
+                row = row - 1;
+                if (disk[row][column] == disk[x][y]) {
+                    count += 1;
                 }
             }
         }
-        if(count==3){
+        if (count == 3) {
             return true;
         }
-        count=0;
-        row=x;
-        column=y;
-        for(int i=0;i<=2;i++)
-        {
-            if(column<=4 && row<=5)
-            {
-                column=column+1;
-                row=row+1;
-                if(disk[row][column]==disk[x][y])
-                {
-                    count+=1;
+        count = 0;
+        row = x;
+        column = y;
+        for (int i = 0; i <= 2; i++) {
+            if (column <= 4 && row <= 5) {
+                column = column + 1;
+                row = row + 1;
+                if (disk[row][column] == disk[x][y]) {
+                    count += 1;
                 }
             }
         }
-        if(count==3){
+        if (count == 3) {
             return true;
         }
-        count=0;
-        row=x;
-        column=y;
-        for(int i=0;i<=2;i++)
-        {
-            if(column>=1 && row<=5)
-            {
-                column=column-1;
-                row=row+1;
-                if(disk[row][column]==disk[x][y])
-                {
-                    count+=1;
+        count = 0;
+        row = x;
+        column = y;
+        for (int i = 0; i <= 2; i++) {
+            if (column >= 1 && row <= 5) {
+                column = column - 1;
+                row = row + 1;
+                if (disk[row][column] == disk[x][y]) {
+                    count += 1;
                 }
             }
         }
-        if(count==3){
+        if (count == 3) {
             return true;
         }
-        count=0;
-        row=x;
-        column=y;
-        for(int i=0;i<=2;i++)
-        {
-            if(column<=4 && row>=1)
-            {
-                column=column+1;
-                row=row-1;
-                if(disk[row][column]==disk[x][y])
-                {
-                    count+=1;
+        count = 0;
+        row = x;
+        column = y;
+        for (int i = 0; i <= 2; i++) {
+            if (column <= 4 && row >= 1) {
+                column = column + 1;
+                row = row - 1;
+                if (disk[row][column] == disk[x][y]) {
+                    count += 1;
                 }
             }
         }
-        if(count==3){
+        if (count == 3) {
             return true;
         }
         return false;
     }
+
     /**
 
      */
+    public int getrow;
     private boolean onReleased(View view, float x, float y) {
         int row;
         row = (int) ((x + 0.03) * 7 - 0.5);
         row1[row] += 1;
+        getrow=row;
         if (row1[row] >= 7) {
             AlertDialog.Builder builder1 = new AlertDialog.Builder(text);
             builder1.setMessage("Invalid Move");
@@ -419,18 +403,36 @@ public class ConnectFourBoard {
             return false;
         }
         int column = 5 - row1[row];
-        int column1=column+1;
+        int column1 = column + 1;
         disk[row][column1] = turn;
 
-        float Y=(float) (column + .5) / 6;
-        Y+=.010+0.025*row1[row];
+        float Y = (float) (column + .5) / 6;
+        Y += .010 + 0.025 * row1[row];
         dragging.setX((float) (row + .5) / 7);
         dragging.setY(Y);
         boolean result = false;
         result = checkhorizontal(row, column1);
-        if (result == true){
+        if (result == true) {
             AlertDialog.Builder builder1 = new AlertDialog.Builder(text);
-            builder1.setMessage("Horizontal win for the player "+turn);
+            builder1.setMessage("Horizontal win for the Player " + turn);
+            builder1.setCancelable(true);
+
+            builder1.setPositiveButton(
+                    "continue",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alert11 = builder1.create();
+            alert11.show();
+            //maybe add a call from the game activity to go to the en activity, we need to switch the game activity to the end activity
+            return false;
+        }
+        result = checkvertical(row, column1);
+        if (result == true) {
+            AlertDialog.Builder builder1 = new AlertDialog.Builder(text);
+            builder1.setMessage("Vertical win for the Player " + turn);
             builder1.setCancelable(true);
 
             builder1.setPositiveButton(
@@ -444,10 +446,10 @@ public class ConnectFourBoard {
             alert11.show();
             return false;
         }
-        result=checkvertical(row,column1);
-        if (result == true){
+        result = checkdiagonal(row, column1);
+        if (result == true) {
             AlertDialog.Builder builder1 = new AlertDialog.Builder(text);
-            builder1.setMessage("Vertical win for the player "+turn);
+            builder1.setMessage("Diagonal win for the Player " + turn);
             builder1.setCancelable(true);
 
             builder1.setPositiveButton(
@@ -459,34 +461,17 @@ public class ConnectFourBoard {
                     });
             AlertDialog alert11 = builder1.create();
             alert11.show();
-            return false;
-        }
-        result=checkdiagonal(row,column1);
-        if (result == true){
-            AlertDialog.Builder builder1 = new AlertDialog.Builder(text);
-            builder1.setMessage("Diagonal win for the user "+turn);
-            builder1.setCancelable(true);
 
-            builder1.setPositiveButton(
-                    "continue",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.cancel();
-                        }
-                    });
-            AlertDialog alert11 = builder1.create();
-            alert11.show();
             return false;
         }
 
         //connectSwitch();
 
 
-
         // dragging.setX(marginX + X * boardSize);
         // dragging.setY(marginY + Y * boardSize * 6 / 7.0f);
 
-        if(dragging != null) {
+        if (dragging != null) {
             dragging = null;
             return true;
         }
@@ -494,32 +479,50 @@ public class ConnectFourBoard {
         return false;
     }
 
-    public void connectSwitch(){
-        if(turn==1)
-        {
+    public void connectSwitch() {
+        if (turn == 1) {
             pieces.add(new ConnectPiece(text,
                     R.drawable.spartan_white,
                     0.259f,
                     0.238f));
-            turn=2;
-           // callmessage1(text);
-        }
-        else
-        {
+            turn = 2;
+
+        } else {
             pieces.add(new ConnectPiece(text,
                     R.drawable.spartan_green,
                     0.259f,
                     0.238f));
-            turn=1;
-            //callmessage(text);
+            turn = 1;
+
         }
+
     }
+
+    public void restoreConnect() {
+        if (turn == 1) {
+            pieces.add(new ConnectPiece(text,
+                    R.drawable.spartan_green,
+                    0.259f,
+                    0.238f));
+            turn = 1;
+
+        } else {
+            pieces.add(new ConnectPiece(text,
+                    R.drawable.spartan_white,
+                    0.259f,
+                    0.238f));
+            turn = 2;
+
+        }
+
+    }
+
 
     public void undomove() {
 
-
-        pieces.remove(pieces.size()-1);
-        draw(canvasOne);
+        row1[getrow]-=1;
+        pieces.remove(pieces.size() - 1);
+        restoreConnect();
 
 
     }
