@@ -9,14 +9,11 @@
     <string name="forfeit">Forfeit</string>
     <string name="game_over">Game over!</string>
     <string name="mainMenuButton">Main Menu</string>
-    <string name="jane_doe">Jane Doe</string>
-    <string name="john_smith">John Smith</string>
     <string name="winner">Winner:</string>
     <string name="user_two">user_2</string>
     <string name="user_one">user_1</string>
     <string name="gamePlay">Play</string>
     <string name="loser">Loser:</string>
-    <string name="rematchButton">REMATCH</string>
     <string name="howToPlay">HOW TO PLAY</string>
     <string name="gameInstructions">How To Play:</string>
     <string name="instructionSteps">

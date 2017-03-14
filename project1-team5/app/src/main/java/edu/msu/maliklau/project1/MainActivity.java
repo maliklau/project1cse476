@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
         LayoutInflater inflater = this.getLayoutInflater();
         final View dialogHowTo = inflater.inflate(R.layout.dialogue_how_to, null);
         dialogBuilder.setView(dialogHowTo);
-        dialogBuilder.setTitle("LEARN HOW TO PLAY THE GAME!");
+        dialogBuilder.setTitle("LEARN HOW TO PLAY!");
         dialogBuilder
                 .setCancelable(false)
                 .setNegativeButton("Done", new DialogInterface.OnClickListener() {
