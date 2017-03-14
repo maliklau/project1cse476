@@ -231,10 +231,7 @@ public class ConnectFourBoard {
         return false;
     }
     /**
-     * Handle a touch message. This is when we get an initial touch
-     * @param x x location for the touch, relative to the puzzle - 0 to 1 over the puzzle
-     * @param y y location for the touch, relative to the puzzle - 0 to 1 over the puzzle
-     * @return true if the touch is handled
+     Checks horizontal win
      */
     private boolean checkhorizontal(int x, int y) {
         int count;
@@ -275,10 +272,7 @@ public class ConnectFourBoard {
         return false;
     }
     /**
-     * Handle a touch message. This is when we get an initial touch
-     * @param x x location for the touch, relative to the puzzle - 0 to 1 over the puzzle
-     * @param y y location for the touch, relative to the puzzle - 0 to 1 over the puzzle
-     * @return true if the touch is handled
+     Checks vertical win
      */
     private boolean checkvertical(int x, int y) {
         int count;
@@ -319,10 +313,7 @@ public class ConnectFourBoard {
         return false;
     }
     /**
-     * Handle a touch message. This is when we get an initial touch
-     * @param x x location for the touch, relative to the puzzle - 0 to 1 over the puzzle
-     * @param y y location for the touch, relative to the puzzle - 0 to 1 over the puzzle
-     * @return true if the touch is handled
+     Checks diagonal win
      */
     private boolean checkdiagonal(int x, int y) {
         int count;
@@ -401,10 +392,7 @@ public class ConnectFourBoard {
         return false;
     }
     /**
-     * Handle a release of a touch message.
-     * @param x x location for the touch release, relative to the puzzle - 0 to 1 over the puzzle
-     * @param y y location for the touch release, relative to the puzzle - 0 to 1 over the puzzle
-     * @return true if the touch is handled
+
      */
     private boolean onReleased(View view, float x, float y) {
         int row;
@@ -412,11 +400,11 @@ public class ConnectFourBoard {
         row1[row] += 1;
         if (row1[row] >= 7) {
             AlertDialog.Builder builder1 = new AlertDialog.Builder(text);
-            builder1.setMessage("invalid");
+            builder1.setMessage("Invalid Move");
             builder1.setCancelable(true);
 
             builder1.setPositiveButton(
-                    "continue",
+                    "Continue",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.cancel();
@@ -438,7 +426,7 @@ public class ConnectFourBoard {
         result = checkhorizontal(row, column1);
         if (result == true){
             AlertDialog.Builder builder1 = new AlertDialog.Builder(text);
-            builder1.setMessage("Horizontal win for the user "+turn);
+            builder1.setMessage("Horizontal win for the player "+turn);
             builder1.setCancelable(true);
 
             builder1.setPositiveButton(
@@ -455,7 +443,7 @@ public class ConnectFourBoard {
         result=checkvertical(row,column1);
         if (result == true){
             AlertDialog.Builder builder1 = new AlertDialog.Builder(text);
-            builder1.setMessage("Vertical win for the user "+turn);
+            builder1.setMessage("Vertical win for the player "+turn);
             builder1.setCancelable(true);
 
             builder1.setPositiveButton(
@@ -486,6 +474,23 @@ public class ConnectFourBoard {
             alert11.show();
             return false;
         }
+
+        connectSwitch();
+
+
+
+        // dragging.setX(marginX + X * boardSize);
+        // dragging.setY(marginY + Y * boardSize * 6 / 7.0f);
+
+        if(dragging != null) {
+            dragging = null;
+            return true;
+        }
+
+        return false;
+    }
+
+    public void connectSwitch(){
         if(turn==1)
         {
             pieces.add(new ConnectPiece(text,
@@ -504,15 +509,6 @@ public class ConnectFourBoard {
             turn=1;
             callmessage(text);
         }
-        // dragging.setX(marginX + X * boardSize);
-        // dragging.setY(marginY + Y * boardSize * 6 / 7.0f);
-
-        if(dragging != null) {
-            dragging = null;
-            return true;
-        }
-
-        return false;
     }
 
 

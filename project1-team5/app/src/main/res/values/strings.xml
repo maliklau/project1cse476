@@ -33,7 +33,6 @@
     <string name="back_to_menu_button">Back to main menu</string>
     <string name="game_over_text">GAME OVER</string>
     <string name="name">Name</string>
-
     <string name="your_turn">Sav, it\'s your turn!</string>
 </resources>
 

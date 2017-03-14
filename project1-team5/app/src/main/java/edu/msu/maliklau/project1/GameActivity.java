@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.TextView;
 
 import butterknife.BindView;
@@ -47,11 +46,10 @@ public class GameActivity extends AppCompatActivity {
         updateUI();
     }
 
-    /*public void OnUndo(View view){
-
+    @OnClick(R.id.undo)
+    public void onUndoFABClick() {
 
     }
-    */
 
     @OnClick(R.id.forfeit)
     public void onForfeitFABClick() {
@@ -69,10 +67,12 @@ public class GameActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onDone(View view) {
+    @OnClick(R.id.done)
+    public void onDoneFABClick() {
 
-        Intent intent = new Intent(this, EndActivity.class);
-        startActivity(intent);
+       getConnectFourView().done();
+       // getConnectFourBoard().connectSwitch();
+        updateUI();
     }
 
     @Override
@@ -89,6 +89,9 @@ public class GameActivity extends AppCompatActivity {
     ConnectFourView getConnectFourView() {
         return (ConnectFourView) findViewById(R.id.gameView);
     }
+   /* ConnectFourBoard getConnectFourBoard(){
+        return (ConnectFourBoard) findViewById(R.id.gameView);
+    }*/
 
     private void updateUI() {
         if (getConnectFourView().isPlayerOneTurn()) {

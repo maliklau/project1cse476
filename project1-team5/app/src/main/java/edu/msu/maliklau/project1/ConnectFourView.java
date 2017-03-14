@@ -14,7 +14,7 @@ import java.io.Serializable;
  */
 
 
-public class ConnectFourView extends View{
+public class ConnectFourView extends View {
 
     public final static String BOARD_SIZE = "edu.msu.maliklau.project1.BOARD_SIZE";
     public final static String CONNECT_FOUR_BOARD = "playingArea";
@@ -27,7 +27,6 @@ public class ConnectFourView extends View{
     private ConnectFourBoard board = null;
 
     private Context context;
-
 
 
     public final static String PARAMETERS = "parameters";
@@ -52,8 +51,8 @@ public class ConnectFourView extends View{
         board = new ConnectFourBoard(getContext());
     }
 
-    public void startGame(){
-        params = new Parameters(((GameActivity)context).getIntent().getStringExtra(MainActivity.PLAYERONENAME), ((GameActivity)context).getIntent().getStringExtra(MainActivity.PLAYERTWONAME));
+    public void startGame() {
+        params = new Parameters(((GameActivity) context).getIntent().getStringExtra(MainActivity.PLAYERONENAME), ((GameActivity) context).getIntent().getStringExtra(MainActivity.PLAYERTWONAME));
 
     }
 
@@ -78,6 +77,7 @@ public class ConnectFourView extends View{
 
     /**
      * Save the puzzle to a bundle
+     *
      * @param bundle The bundle we save to
      */
     public void saveInstanceState(Bundle bundle) {
@@ -88,6 +88,7 @@ public class ConnectFourView extends View{
 
     /**
      * Load the puzzle from a bundle
+     *
      * @param bundle The bundle we save to
      */
     public void loadState(Bundle bundle) {
@@ -99,9 +100,6 @@ public class ConnectFourView extends View{
     public ConnectFourBoard getConnectFourBoard() {
         return board;
     }
-
-
-
 
 
     public boolean isPlayerOneTurn() {
@@ -123,7 +121,6 @@ public class ConnectFourView extends View{
     }
 
 
-
     public void saveState(Bundle bundle) {
         bundle.putSerializable(PARAMETERS, params);
     }
@@ -136,10 +133,6 @@ public class ConnectFourView extends View{
         return params.playerTwo;
     }
 
-    /*public void initialize(Intent intent) {
-        params.boardSize = intent.getSerializableExtra(BOARD_SIZE);
-        initialize(params.boardSize);
-    }*/
 
     public void setPlayers(Player playerOne, Player playerTwo) {
 
@@ -147,6 +140,11 @@ public class ConnectFourView extends View{
         params.playerTwo = playerTwo;
     }
 
+    public void done() {
+
+        switchTurn();
+        invalidate();
+    }
 
 
     private static class Parameters implements Serializable {
@@ -154,8 +152,8 @@ public class ConnectFourView extends View{
 
         public Parameters(String playeronename, String playertwoname) {
 
-            playerOne = new Player (playeronename);
-            playerTwo = new Player (playertwoname);
+            playerOne = new Player(playeronename);
+            playerTwo = new Player(playertwoname);
         }
 
         //public boardSize;
